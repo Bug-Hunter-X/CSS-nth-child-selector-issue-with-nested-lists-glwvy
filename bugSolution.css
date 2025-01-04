@@ -1,0 +1,26 @@
+Several solutions exist to address this issue. One effective approach is to use a counter. Here's how you can implement it:
+
+```css
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  counter-increment: list-item;
+}
+
+li::before {
+  content: counter(list-item) ". ";
+}
+
+li:nth-child(odd) {
+  background-color: #f0f0f0;
+}
+
+li:nth-child(even) {
+  background-color: #ffffff;
+}
+```
+
+Another solution involves a more complex selector that accounts for nested lists and uses the `:nth-of-type` selector along with multiple `ul li` declarations. However, this method can become cumbersome with very deeply nested lists.  A counter-based approach is generally more maintainable and efficient in such scenarios.
